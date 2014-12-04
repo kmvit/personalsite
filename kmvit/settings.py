@@ -27,11 +27,17 @@ TEMPLATE_DEBUG = True
 ALLOWED_HOSTS = []
 
 ADMINS = (
-    ('Andrey', 'kmv-it@yande.ru'),
+    ('Andrey', 'kmv-it@yandex.ru'),
 )
 
 MANAGERS = ADMINS
 
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER ='myemail@gmail.com'
+EMAIL_HOST_PASSWORD = 'password'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # Application definition
 

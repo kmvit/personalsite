@@ -214,11 +214,11 @@
                 <div class="col-lg-8 col-lg-offset-2">
                     <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
                     <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
-                    <form name="sentMessage" action="" method="post" id="contactForm" >  {% csrf_token %}
+                    <form name="sentMessage" action="" method="post" id="ajaxform" >  {% csrf_token %}
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label>Имя</label>
-                                <input type="text" class="form-control" placeholder="Name" id="id_name" name="name" required data-validation-required-message="Please enter your name.">
+                                <input type="name" class="form-control" placeholder="Name" id="id_name" name="name" required data-validation-required-message="Please enter your name.">
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
@@ -247,12 +247,20 @@
                         <div id="success"></div>
                         <div class="row">
                             <div class="form-group col-xs-12">
+							<div id="loading" style="display:none;">
+            <span id="load_text">loading...</span>
+        </div>
+        <div id="form_ajax" style="display:none;">
+            <span>Form submit successfully.</span>
+        </div>
+        <div id="form_ajax_error" style="display:none;">
+            <span>Can not submit data due to errors.</span>
+        </div>
                                 <button type="submit" class="btn btn-success btn-lg">Отправить</button>
                             </div>
                         </div>
                     </form>
 	
-
 
                 </div>
             </div>
@@ -308,10 +316,18 @@
 
     <!-- Contact Form JavaScript -->
     <script src="{{STATIC_URL}}js/jqBootstrapValidation.js"></script>
-    <script src="{{STATIC_URL}}js/contact_me.js"></script>
+	<script src="{{STATIC_URL}}js/contact_me.js"></script>
+
 
     <!-- Custom Theme JavaScript -->
     <script src="{{STATIC_URL}}js/freelancer.js"></script>
+	<title>Contact</title>
+    <script type="text/javascript"
+        src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js">
+    </script>
+    <script type="text/javascript"
+        src="http://malsup.github.com/min/jquery.form.min.js">
+    </script>
 
 </body>
 
