@@ -18,9 +18,10 @@ def index(request):
         form = ContactForm(request.POST)
         if form.is_valid():
             # Imaginable form purpose. Post to admins.
-            message = """From: %s <%s>\r\nMessage:\r\n%s\r\n""" % (
+            message = """From: %s <%s>\r\nPhone:%s\r\nMessage:\r\n%s\r\n""" % (
                 form.cleaned_data['name'],
                 form.cleaned_data['email'],
+                form.cleaned_data['phone'],
                 form.cleaned_data['message']
             )
             mail_admins('Contact form', message)
